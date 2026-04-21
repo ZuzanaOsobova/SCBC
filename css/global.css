@@ -76,6 +76,7 @@ ul {
 main {
     padding-left: 1rem;
     padding-right: 1rem;
+    font-size: 1.1rem;
 }
 
 h2 {
@@ -95,4 +96,51 @@ h2 {
     float: right;
     width: 15rem;
     height: auto;
+}
+
+/* CSS FOR INDEX TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+    text-align: left;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 0.5rem;
+
+}
+
+td {
+    padding: 0.5rem;
+}
+
+.moreBtn {
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+tr:hover {
+    text-decoration: underline;
+    color: var(--blue);
+    cursor: pointer;
+}
+
+
+/* ABOUT PAGE CSS */
+.imageColumn {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.aboutImg {
+    width: 15rem;
+    height: auto;
+    display: block;
+    padding: 1rem;
 }
