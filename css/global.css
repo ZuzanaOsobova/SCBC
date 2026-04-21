@@ -1,6 +1,6 @@
 html {
   background-color: var(--white);
-  font-family: sans-serif;
+  font-family: Anonymous Pro, serif;
 }
 
 body {
@@ -11,6 +11,7 @@ body {
 }
 
 
+/* Header CSSS */
 header {
     position: relative;
     top: 0;
@@ -33,6 +34,7 @@ h1 {
     font-size:2rem;
     padding: 0;
     margin: 0;
+    padding-right: 1rem;
 }
 
 .headerLogo{
@@ -42,15 +44,11 @@ h1 {
     margin: 0;
 }
 
-
-nav {
-    background-color: var(--blue);
-}
-
 ul {
     display: flex;
     list-style-type: none;
     padding: 0;
+    background-color: var(--blue);
 }
 
 .navButton {
@@ -71,4 +69,30 @@ ul {
 
 .navButton a:hover {
     text-decoration: underline;
+}
+
+
+/* MAIN css */
+main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+h2 {
+    width: 100%;
+    color: var(--black);
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+
+/* CSS for book page specifically */
+.annotation {
+    color: var(--blue);
+}
+
+.bookPage img {
+    float: right;
+    width: 15rem;
+    height: auto;
 }
