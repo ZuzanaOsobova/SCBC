@@ -57,7 +57,7 @@ function loadIntoTable(books){
         year.innerHTML = books[key].year_read
 
         const month = row.insertCell(1)
-        month.innerHTML = books[key].month_read
+        month.innerHTML = translateMonth(books[key].month_read)
 
         const name = row.insertCell(2)
         name.innerHTML = books[key].name

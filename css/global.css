@@ -100,6 +100,21 @@ h2 {
     padding: 2px;
 }
 
+/* CSS for small screens, changes how the cover image behaves and also the name of the book */
+@media (max-width: 500px) {
+  .bookPage img {
+    float: none;
+    display: block;
+    margin: 0 auto;
+
+  }
+
+  #name {
+    text-align: center;
+  }
+}
+
+
 /* CSS FOR INDEX TABLE */
 table {
     width: 100%;
