@@ -54,7 +54,7 @@ function loadIntoTable(books){
         //insertCell(x) x is given based on the column of the table the data is supposed to show in, don't change unless you are changing everything
 
         const year = row.insertCell(0)
-        year.innerHTML = books[key].year_read
+        year.innerHTML = books[key].year_read || "???"
 
         const month = row.insertCell(1)
         month.innerHTML = translateMonth(books[key].month_read)

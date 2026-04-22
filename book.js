@@ -31,7 +31,7 @@ async function loadBook(id) {
 function displayBook(book){
     document.getElementById("name").innerText = book.name
     document.getElementById("author").innerText = book.author
-    document.getElementById("year").innerText = book.year_read
+    document.getElementById("year").innerText = book.year_read || "???"
     document.getElementById("month").innerText = translateMonth(book.month_read)
     document.getElementById("recommendedBy").innerText = book.recommended_by
 

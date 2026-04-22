@@ -117,17 +117,23 @@ h2 {
 
 /* CSS FOR INDEX TABLE */
 table {
-    width: 100%;
     border-collapse: collapse;
 }
 
-th {
-    font-weight: bold;
-    text-align: left;
-    background-color: var(--blue);
-    color: var(--white);
-    padding: 0.5rem;
+.table {
+  max-height: 60vh;
+  overflow-y: auto;
+}
 
+thead th {
+  z-index: 1;
+  font-weight: bold;
+  text-align: left; 
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 0.5rem;
+  position: sticky;
+  top: 0
 }
 
 td {
