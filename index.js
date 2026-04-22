@@ -1,5 +1,5 @@
 console.log("JS happening");
-const table = document.getElementById("table")
+
 
 let admin;
 let books= {};
@@ -28,18 +28,49 @@ async function loadBooks(admin) {
 
         books[book] = await response.json();
 
-    } catch (error) {
-        console.error("Error loading JSON:", error);
+        } catch (error) {
+            console.error("Error loading JSON:", error);
+        }
     }
-
-    }
+    loadIntoTable(books)
 }
 
-//Finish
+
 function loadIntoTable(books){
-    for (const book of books){
+    console.log(books)
+
+    const table = document.getElementById("table")
+
+    for (const key in books) {
+        
+        const row = table.insertRow(key);
+
+        //adding "link" to the whole row, so you can click anywhere in said row to be taken to correct book
+        row.onclick = () => {
+        window.location = `book.html?id=${key}`;
+        };
+
+
+        //insertCell(x) x is given based on the column of the table the data is supposed to show in, don't change unless you are changing everything
+
+        const year = row.insertCell(0)
+        year.innerHTML = books[key].year_read
+
+        const month = row.insertCell(1)
+        month.innerHTML = books[key].month_read
+
+        const name = row.insertCell(2)
+        name.innerHTML = books[key].name
+
+        const author = row.insertCell(3)
+        author.innerHTML = books[key].author
+        
+        const info = row.insertCell(4);
+        info.innerHTML = `<a href='book.html?id=${key}' class='moreBtn'>more</a>`;
 
     }
+
+
 }
 
 loadAdmin()

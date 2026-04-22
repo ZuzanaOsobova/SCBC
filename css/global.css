@@ -6,8 +6,9 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 80ch;
+  max-width: 800px;
   line-height: 1.5;
+  padding-bottom: 2rem;
 }
 
 
@@ -96,6 +97,7 @@ h2 {
     float: right;
     width: 15rem;
     height: auto;
+    padding: 2px;
 }
 
 /* CSS FOR INDEX TABLE */
