@@ -40,6 +40,6 @@ function displayBook(book){
     document.getElementById("description").innerText = book.book_description
     document.getElementById("thoughts").innerText = book.club_thoughts
 
-    document.getElementById("cover").src = "images/" + book.cover
+    document.getElementById("cover").src = "images/covers/" + book.cover
     document.getElementById("cover").alt = book.name + " cover."
 }
