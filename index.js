@@ -4,6 +4,8 @@ console.log("JS happening");
 let admin;
 let books= {};
 
+loadAdmin()
+
 async function loadAdmin() {
     try {
         const response = await fetch('admin.json');
@@ -39,11 +41,18 @@ async function loadBooks(admin) {
 function loadIntoTable(books){
     console.log(books)
 
-    const table = document.getElementById("table")
+    const table = document.getElementById("table").getElementsByTagName("tbody")[0]
 
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
+
+
+    let i = 0;
     for (const key in books) {
         
-        const row = table.insertRow(key);
+        const row = table.insertRow(i);
+        i++
 
         //adding "link" to the whole row, so you can click anywhere in said row to be taken to correct book
         row.onclick = () => {
@@ -73,4 +82,57 @@ function loadIntoTable(books){
 
 }
 
-loadAdmin()
+let chosenYear = "all";
+let chosenMonth = "all";
+let search = "";
+
+function onChangeYear(value){
+    chosenYear = value;
+    filter()
+}
+
+function onChangeMonth(value){
+    chosenMonth = value;
+    filter()
+}
+
+function onChangeSearch(value){
+    search = value;
+    filter()
+}
+
+
+//TODO uchovat filtry  v URL
+
+function filter(){
+    console.log("Running filter")
+    //I'm trying to figure out a filter for my super duper object
+
+    let filteredBooks = {}
+
+    for (const [id, book] of Object.entries(books)) {
+        if (filterYear(book.year_read) && filterMonth(book.month_read) && filterText(book.name, book.author)) {
+            filteredBooks[id] = book
+        }
+    }
+
+    loadIntoTable(filteredBooks)
+
+    function filterYear(year){
+        if (chosenYear === "all") return true;
+        if (year === chosenYear) return true;
+        return false
+    }
+
+    function filterMonth(month){
+        if (chosenMonth === "all") return true;
+        if (month === chosenMonth) return true;
+        return false
+    }
+
+    function filterText(name, author) {
+        return name.toLowerCase().includes(search.toLowerCase()) || author.toLowerCase().includes(search.toLowerCase())
+    }
+
+}
+

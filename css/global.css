@@ -118,6 +118,7 @@ h2 {
 /* CSS FOR INDEX TABLE */
 table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 .table {
@@ -145,7 +146,7 @@ td {
     text-decoration: underline;
 }
 
-tr:hover {
+tbody tr:hover {
     text-decoration: underline;
     color: var(--blue);
     cursor: pointer;
