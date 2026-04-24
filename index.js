@@ -82,6 +82,8 @@ function loadIntoTable(books){
 
 }
 
+//přihodit kontrolu codument load a převzat z url a zavolat filtr
+
 // SEARCHING AND FILTERING STUFF
 const url = new URL(window.location)
 const params = url.searchParams;

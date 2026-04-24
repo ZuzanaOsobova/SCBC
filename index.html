@@ -30,7 +30,8 @@
                 <h2>books</h2>
 
                 <div id="search">
-                    <label for="selectYear">Year</label>
+
+                    <label for="selectYear">Year:</label>
                     <select id="selectYear" onchange="onChangeYear(this.value)">
                         <option value="all" selected>--YEAR--</option>
                         <option value="2020">2020</option>
@@ -41,8 +42,9 @@
                         <option value="2025">2025</option>
                         <option value="2026">2026</option>
                     </select>
+                    
 
-                    <label for="selectMonth">Month</label>
+                    <label for="selectMonth">Month:</label>
                     <select id="selectMonth" onchange="onChangeMonth(this.value)">
                         <option value="all" selected>--MONTH--</option>
                         <option value='1'>January</option>
@@ -58,11 +60,11 @@
                         <option value='11'>November</option>
                         <option value='12'>December</option>
                     </select>
+                    
 
                     <label for="text">Search:</label>
                     <input type="text" id="text" oninput="onChangeSearch(this.value)">
-
-
+                    
 
                 </div>
 
@@ -71,14 +73,19 @@
                     <table id="table">
                         <thead>
                             <tr >
-                                <th>YEAR</th>
-                                <th>MONTH</th>
-                                <th>BOOK</th>
-                                <th>AUTHOR</th>
-                                <th>INFO</th>
+                                <th width="5%">YEAR</th>
+                                <th width="10%">MONTH</th>
+                                <th width="50%">BOOK</th>
+                                <th width="25%">AUTHOR</th>
+                                <th width="10%">INFO</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Loading...</th>
+                            </tr>
                             
                         </tbody>
                     </table>

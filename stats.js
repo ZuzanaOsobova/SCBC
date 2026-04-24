@@ -39,7 +39,7 @@ async function loadBooks(admin) {
 function loadStats(books) {
 
     const numBooks = document.getElementById("booksNumber")
-    numBooks.innerText = Object.keys(books).length
+    numBooks.innerText = Object.keys(books).length + " books"
 
     //Getting most read genre
     const genres = {};
