@@ -59,7 +59,7 @@ function loadStats(books) {
     const mostRead = Object.keys(genres).reduce((a, b) => genres[a] > genres[b] ? a : b);
 
     const mostGenre = document.getElementById("genres")
-    mostGenre.innerText = `${mostRead}(${genres[mostRead]} books)`
+    mostGenre.innerText = `${mostRead} (${genres[mostRead]} books)`
 
 
     const sid = document.getElementById("sid")
