@@ -43,8 +43,8 @@ function loadIntoTable(books){
 
     const table = document.getElementById("table").getElementsByTagName("tbody")[0]
 
-    while (table.rows.length > 1) {
-        table.deleteRow(1);
+    while (table.rows.length > 0) {
+        table.deleteRow(0);
     }
 
 
@@ -82,57 +82,73 @@ function loadIntoTable(books){
 
 }
 
-let chosenYear = "all";
-let chosenMonth = "all";
-let search = "";
+// SEARCHING AND FILTERING STUFF
+const url = new URL(window.location)
+const params = url.searchParams;
+
+
+const state = {
+  year: params.get("year") ?? "all",
+  month: params.get("month") ?? "all",
+  search: params.get("search") ?? "",
+};
+
+
+function updateState(key, value) {
+  state[key] = value;
+  filter();
+}
+
 
 function onChangeYear(value){
-    chosenYear = value;
-    filter()
+    updateState("year", value)
 }
 
 function onChangeMonth(value){
-    chosenMonth = value;
-    filter()
+    updateState("month", value)
 }
 
 function onChangeSearch(value){
-    search = value;
-    filter()
+    updateState("search", value)
 }
 
 
-//TODO uchovat filtry  v URL
-
 function filter(){
     console.log("Running filter")
-    //I'm trying to figure out a filter for my super duper object
 
-    let filteredBooks = {}
+    const filteredBooks = {}
 
     for (const [id, book] of Object.entries(books)) {
-        if (filterYear(book.year_read) && filterMonth(book.month_read) && filterText(book.name, book.author)) {
+        if (
+            match(book.year_read, state.year)
+            && match(book.month_read, state.month)
+            && filterText(book, state.search)
+        ) {
             filteredBooks[id] = book
         }
     }
 
+    syncUrl()
     loadIntoTable(filteredBooks)
 
-    function filterYear(year){
-        if (chosenYear === "all") return true;
-        if (year === chosenYear) return true;
-        return false
-    }
+}
 
-    function filterMonth(month){
-        if (chosenMonth === "all") return true;
-        if (month === chosenMonth) return true;
-        return false
-    }
+function match(value, selected){
+    return selected === "all" || selected === value
+}
 
-    function filterText(name, author) {
-        return name.toLowerCase().includes(search.toLowerCase()) || author.toLowerCase().includes(search.toLowerCase())
-    }
+function filterText(book, search){
+    if (!search) return true
+    const query = search.toLowerCase()
+    return book.name.toLowerCase().includes(query) || book.author.toLowerCase().includes(query)
+}
 
+
+function syncUrl(){
+    url.searchParams.set("year", state.year)
+    url.searchParams.set("month", state.month)
+    url.searchParams.set("search", state.search)
+
+    window.history.pushState({}, '', url)
 }
 

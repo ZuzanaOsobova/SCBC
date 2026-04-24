@@ -1,9 +1,9 @@
 console.log("We are booking")
 
-const query = window.location.search
+const url = new URL(window.location)
+const params = url.searchParams;
+const id = params.get("id")
 
-//finds part of the query which happens after id=, if some more query parts would be added in future, gotta add, where the string should be closed (usually find the next query part)
-const id = query.substring(query.indexOf("id=")+3)
 
 console.log(id)
 
