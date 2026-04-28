@@ -37,7 +37,7 @@
 }
 
 .generateBtn:hover {
-    background-color: #aeb4d6;
+    background-color: var(--light-blue);
     color: var(--black);
     cursor: pointer;
 }
@@ -52,7 +52,7 @@
 }
 
 .clearBtn:hover {
-    background-color: #f08080;
+    background-color: var(--light-red);
     color: var(--black);
 }
 
@@ -94,7 +94,7 @@ button {
 }
 
 .addBtn:hover {
-    background-color: #6fd9c4 ;
+    background-color: var(--light-green) ;
     color: var(--black);
 }
 

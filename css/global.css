@@ -194,7 +194,7 @@ td {
 
 tbody tr:hover {
     cursor: pointer;
-    background-color: #aeb4d6;
+    background-color: var(--light-blue);
     color: var(--black);
 }
 
