@@ -62,12 +62,12 @@ function format(){
     answer.value = JSON.stringify({
         name: name,
         author: author,
-        year: year,
-        month: month,
-        recommendedBy: recommendedBy,
+        year_read: year,
+        month_read: month,
+        recommended_by: recommendedBy,
         genre: chosenGenres,
-        description: description,
-        thoughts: thoughts,
+        book_description: description,
+        club_thoughts: thoughts,
         cover: cover
     });
 
