@@ -68,9 +68,18 @@
 
                 <div class="input-group">
                 <label for="genre">GENRE</label>
-                <input type="text" id="genre" list="genre-list">
+
+                <div id="genreInput">
+                    <input type="text" id="genre" list="genre-list">
+                    <button type="button" class="addBtn" onclick="addGenre()">Add Genre</button>
+                </div>
+
                 <datalist id="genre-list">
                 </datalist>
+
+                <div id="chosenGenres">                    
+                </div>
+
                 </div>
 
                 <div class="input-group">

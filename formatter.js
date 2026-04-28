@@ -53,11 +53,6 @@ function format(){
     const month = document.getElementById("month").value;
     const recommendedBy = document.getElementById("recommendedBy").value;
 
-
-    //todo make array
-    const genre = document.getElementById("genre").value;
-
-
     const description = document.getElementById("description").value;
     const thoughts = document.getElementById("thoughts").value;
     const cover = document.getElementById("cover").value;
@@ -70,7 +65,7 @@ function format(){
         year: year,
         month: month,
         recommendedBy: recommendedBy,
-        genre: genre,
+        genre: chosenGenres,
         description: description,
         thoughts: thoughts,
         cover: cover
@@ -87,9 +82,51 @@ function clearForm(){
     document.getElementById("year").value = "";
     document.getElementById("month").value = "";
     document.getElementById("recommendedBy").value = "";
-    document.getElementById("genre").value = "";
+
+    chosenGenres.splice(0, chosenGenres.length)
+
     document.getElementById("description").value = "";
     document.getElementById("thoughts").value = "";
     document.getElementById("cover").value = "";
     document.getElementById("JSONAnswer").value = "";
+}
+
+const chosenGenres = [];
+
+function addGenre(){
+    const genre = document.getElementById("genre").value
+    if(genre.trim() && !chosenGenres.includes(genre)) {
+        chosenGenres.push(genre.trim())
+        renderGenres()       
+        document.getElementById("genre").value = "" 
+    }
+}
+
+function renderGenres(){
+
+    const genresDiv = document.getElementById("chosenGenres")
+    genresDiv.innerHTML = ""
+
+    chosenGenres.forEach((genre) => {
+        const child = document.createElement("span");
+        child.className = "singleGenre";
+        child.textContent = genre + " ";
+
+        const deleteBtn = document.createElement("span");
+        deleteBtn.className = "deleteBtn";
+        deleteBtn.textContent = "X";
+        deleteBtn.onclick = () => deleteGenre(genre);
+
+        child.appendChild(deleteBtn);
+        genresDiv.appendChild(child);
+    });
+
+}
+
+function deleteGenre(value){
+    const index = chosenGenres.indexOf(value)
+    chosenGenres.splice(index,1)
+
+    renderGenres()
+
 }
