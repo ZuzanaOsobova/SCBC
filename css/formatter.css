@@ -1,0 +1,61 @@
+
+.input-group {
+    padding-bottom: 1rem;
+
+}
+
+.input-group input {
+    text-align: left;
+    width: 95%;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+
+ textarea {
+    width: 95%;
+    height: 20rem;
+    border: none;
+}
+
+.input-group select {
+    background-color: white;
+    border: none;
+    padding: 0.2rem;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.generateBtn {
+    border: none;
+    background-color: var(--blue);
+    color: var(--white);
+    width: 10rem;
+    height: 2rem;
+}
+
+.generateBtn:hover {
+    background-color: #aeb4d6;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.clearBtn {
+    border: none;
+    background-color: var(--red);
+    color: var(--white);
+    width: 10rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.clearBtn:hover {
+    background-color: #f08080;
+    color: var(--black);
+}
+
+button {
+    margin-top: 1rem;
+}

@@ -1,40 +1,16 @@
 console.log("JS happening");
 
+let books;
 
-let admin;
-let books= {};
+init()
 
-loadAdmin()
-
-async function loadAdmin() {
+async function init() {
     try {
-        const response = await fetch('admin.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        admin = await response.json();
-        loadBooks(admin)
+        books = await loadBooks()
+        loadIntoTable(books)
     } catch (error) {
-        console.error("Error loading JSON:", error);
+        console.error("Error loading JSON:", error)
     }
-}
-
-async function loadBooks(admin) {
-    for (const book in admin) {
-        try {
-        const response = await fetch(`books/${admin[book]}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        books[book] = await response.json();
-
-        } catch (error) {
-            console.error("Error loading JSON:", error);
-        }
-    }
-    loadIntoTable(books)
 }
 
 
